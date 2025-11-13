@@ -24,13 +24,13 @@ An intelligent Retrieval-Augmented Generation (RAG) application that enables doc
 
 The RAG Playground revolutionizes how users interact with documents by combining the power of vector databases, embeddings, and Large Language Models (LLMs). Users can upload policy documents, PDFs, presentations, or text files, and then ask questions that are answered using the specific content from those documents.
 
-Built on the SEMOSS platform, this application leverages state-of-the-art embedding models and multiple vector database options (FAISS, Weaviate, Pinecone, pgvector) to provide accurate, citation-backed responses. The system implements advanced retrieval techniques including semantic similarity search, intelligent chunking strategies, and context-aware prompting to ensure high-quality, hallucination-free responses.
+Built on the SEMOSS platform, this application leverages FAISS vector database and embedding models to provide accurate, citation-backed responses.
 
 ---
 
 ## Key Features
 
-- **Multiple Vector Database Support**: FAISS, Weaviate, Pinecone, or pgvector
+- **FAISS Vector Database**: Fast similarity search for document embeddings
 - **Document Upload & Processing**: PDF, DOCX, PPT, and TXT file support
 - **Conversational AI Interface**: Chat-based natural language queries
 - **Context-Aware Responses**: AI retrieves relevant document sections with citations
@@ -47,11 +47,9 @@ Built on the SEMOSS platform, this application leverages state-of-the-art embedd
 - **TypeScript** - Type-safe JavaScript
 - **Material UI v5** - Modern component library
 - **React Router v6** - Client-side routing
-- **Styled Components** (v5.3.11) - Component styling
-- **React Markdown** (v8.0.7) - Markdown rendering with syntax highlighting
+- **React Markdown** (v8.0.7) - Markdown rendering
 - **React Dropzone** (v14.2.3) - Drag-and-drop file upload
 - **React Icons** (v4.10.1) - Icon components
-- **Axios** (v0.24.0) - HTTP client
 - **Webpack 5** - Module bundler
 
 ### Backend / AI Integration
@@ -65,10 +63,7 @@ Built on the SEMOSS platform, this application leverages state-of-the-art embedd
 - **tiktoken** - Token counting for context management
 
 ### Vector Databases
-- **FAISS** - Facebook AI Similarity Search (default)
-- **Weaviate** - Cloud-native vector database
-- **Pinecone** - Managed vector database service
-- **pgvector** - PostgreSQL extension for vector similarity
+- **FAISS** - Facebook AI Similarity Search
 
 ### Document Processing
 - **PDF Text Extraction** - Extract text from PDF documents
@@ -113,16 +108,6 @@ EMBEDDER_ENGINE=your-embedding-engine-id
 # Optional: Development settings
 NODE_ENV=development
 PORT=3000
-```
-
-### Python Backend Configuration
-Update `policy_bot.py` with your configuration:
-```python
-EMBEDDING_MODEL = "text-embedding-ada-002"
-model = "gpt-4-32k"  # or "gpt-4", "gpt-3.5-turbo"
-temp = 0.2
-max_token = 1024
-context_length = 3000
 ```
 
 ---
@@ -180,12 +165,11 @@ pnpm build
 
 We welcome contributions to the RAG Playground! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for detailed guidelines on:
 
-- Code of Conduct
-- How to submit issues
-- How to propose new features
+- Reporting bugs
+- Suggesting enhancements
+- Development workflow
+- Testing your work
 - Pull request process
-- Coding standards and style guide
-- Testing requirements
 
 ---
 
@@ -217,9 +201,6 @@ This project is built using the following technologies:
 - **[SEMOSS](https://semoss.org)** - AI platform and SDK
 - **[React](https://react.dev)** - UI framework
 - **[Material UI](https://mui.com)** - Component library
-- **[TypeScript](https://www.typescriptlang.org)** - Type-safe JavaScript
 - **[NumPy & Pandas](https://numpy.org)** - Python data processing
-- **[Webpack](https://webpack.js.org)** - Module bundler
-- **[pnpm](https://pnpm.io)** - Package manager
 
 ---
