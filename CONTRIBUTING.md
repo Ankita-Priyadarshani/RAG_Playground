@@ -1,518 +1,191 @@
-# How to Contribute
+# Contributing to RAG Playground
 
-Thank you for your interest in contributing to the RAG Playground! Bug reports, feature requests, and pull requests from users are what keep this project working and improving.
-
-This document provides guidelines for contributing to the project. Please take a moment to review this document to make the contribution process smooth and effective for everyone involved.
+Thank you for your interest in contributing to the RAG Playground! We welcome bug reports and pull requests to help improve this project.
 
 ---
 
 ## Table of Contents
 
-- [Code of Conduct](#code-of-conduct)
-- [Getting Started](#getting-started)
-- [How Can I Contribute?](#how-can-i-contribute)
-  - [Reporting Bugs](#reporting-bugs)
-  - [Suggesting Features](#suggesting-features)
-  - [Submitting Pull Requests](#submitting-pull-requests)
+- [Basics](#basics)
+- [Reporting Bugs](#reporting-bugs)
+- [Suggesting Enhancements](#suggesting-enhancements)
+- [Pull Requests](#pull-requests)
 - [Development Workflow](#development-workflow)
-- [Coding Standards](#coding-standards)
-- [Testing Requirements](#testing-requirements)
-- [Documentation Guidelines](#documentation-guidelines)
-- [Additional Resources](#additional-resources)
+- [Testing Your Work](#testing-your-work)
+- [Write Documentation](#write-documentation)
+- [Releasing a New Version](#releasing-a-new-version)
 
 ---
 
-## Code of Conduct
+## Basics
 
-This project and everyone participating in it is governed by our commitment to creating a welcoming and inclusive environment. By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers.
-
-### Our Standards
-
-- **Be respectful**: Treat all contributors with respect and courtesy
-- **Be collaborative**: Work together and help each other
-- **Be inclusive**: Welcome newcomers and diverse perspectives
-- **Be professional**: Maintain professional conduct in all interactions
-- **Be constructive**: Provide constructive feedback and be open to receiving it
+1. Create an issue and describe your idea
+2. Fork the repository
+3. Create your feature branch (`git checkout -b my-new-feature`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Publish the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request
 
 ---
 
-## Getting Started
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (v16 or higher)
-- **pnpm** package manager
-- **Python** 3.8+
-- **Git** for version control
-- **Access to SEMOSS platform** (for testing)
-
-### Setting Up Your Development Environment
-
-1. **Fork the repository** on the project's hosting platform
-2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/your-username/rag-playground.git
-   cd rag-playground
-   ```
-
-3. **Add the upstream repository**:
-   ```bash
-   git remote add upstream https://github.com/original-org/rag-playground.git
-   ```
-
-4. **Install frontend dependencies**:
-   ```bash
-   cd assets/client
-   pnpm install
-   ```
-
-5. **Install Python dependencies**:
-   ```bash
-   pip install numpy pandas openai tiktoken
-   ```
-
-6. **Configure environment variables**:
-   - Copy `.env.example` to `.env` in `assets/client`
-   - Fill in your SEMOSS credentials and configuration
-
-7. **Start the development server**:
-   ```bash
-   pnpm dev
-   ```
-
----
-
-## How Can I Contribute?
-
-### Reporting Bugs
+## Reporting Bugs
 
 Before creating a bug report, please check existing issues to avoid duplicates.
 
-**When submitting a bug report, include:**
+When filing a bug report, include:
 
-- **Clear, descriptive title** for the issue
-- **Detailed description** of the problem
-- **Steps to reproduce** the issue
-- **Expected behavior** vs. actual behavior
-- **Screenshots or error messages** (if applicable)
-- **Environment details**:
-  - OS and version
-  - Node.js version
-  - Browser and version
-  - SEMOSS version
+- **Clear title**: Describe the issue concisely
+- **Steps to reproduce**: Provide detailed steps to reproduce the bug
+- **Expected behavior**: What you expected to happen
+- **Actual behavior**: What actually happened
+- **Environment**: Browser, OS, versions of dependencies
+- **Screenshots**: If applicable
+- **Error messages**: Full error messages and stack traces
 
-**Example Bug Report:**
+**Example:**
+```
+Title: Vector database creation fails with FAISS
 
-```markdown
-### Bug: Vector database creation fails with FAISS
-
-**Description**: When creating a new vector database with FAISS type, the operation fails with error "Cannot initialize FAISS engine".
-
-**Steps to Reproduce**:
-1. Click "Create New Knowledge Base"
+Steps to reproduce:
+1. Open sidebar and click "Create New Knowledge Base"
 2. Enter name "test_kb"
-3. Select FAISS as vector type
-4. Click Create
+3. Click Create
 
-**Expected**: New knowledge base should be created
-**Actual**: Error message appears
+Expected: New knowledge base should be created
+Actual: Upload fails with "Cannot initialize FAISS engine" error
 
-**Environment**:
-- OS: Windows 11
-- Node.js: v18.16.0
-- Browser: Chrome 118
-- SEMOSS: 4.3.5
-
-**Error Message**:
-```
-Error: Cannot initialize FAISS engine
-at CreateVectorDatabaseEngine (line 187)
-```
+Environment: Chrome 119, Windows 11, React 17
 ```
 
-### Suggesting Features
+## Suggesting Enhancements
 
-We welcome feature suggestions! Before submitting, please:
+Enhancement suggestions are welcome! Please provide:
 
-1. **Check existing feature requests** to avoid duplicates
-2. **Clearly describe the feature** and its benefits
-3. **Provide use cases** for the feature
-4. **Consider implementation complexity**
+- **Clear description**: What enhancement you'd like to see
+- **Use case**: Why this enhancement would be valuable
+- **Proposed solution**: Your ideas on how to implement it
+- **Alternatives considered**: Other approaches you've thought about
 
-**Feature Request Template:**
+## Pull Requests
 
-```markdown
-### Feature Request: [Feature Name]
+Pull requests are the best way to contribute code. Please follow these steps:
 
-**Problem Statement**: 
-Describe the problem this feature would solve.
-
-**Proposed Solution**:
-Describe your proposed solution in detail.
-
-**Alternative Solutions**:
-Describe any alternative solutions you've considered.
-
-**Use Cases**:
-- Use case 1
-- Use case 2
-
-**Benefits**:
-- Benefit 1
-- Benefit 2
-
-**Implementation Considerations**:
-Any technical details or challenges to consider.
-```
-
-### Submitting Pull Requests
-
-#### Basics
-
-1. **Create an issue** describing your proposed changes (if one doesn't exist)
-2. **Fork the repository** to your GitHub account
-3. **Create a feature branch** from `main`:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-4. **Make your changes** following our coding standards
-5. **Test your changes** thoroughly
-6. **Commit your changes** with clear commit messages:
-   ```bash
-   git commit -m "Add: Brief description of changes"
-   ```
-7. **Push to your fork**:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-8. **Create a Pull Request** with a clear description
-
-#### Pull Request Guidelines
-
-**PR Title Format:**
-- `Add: [New feature description]`
-- `Fix: [Bug description]`
-- `Update: [Component/feature updated]`
-- `Refactor: [What was refactored]`
-- `Docs: [Documentation changes]`
-
-**PR Description Should Include:**
-- Reference to related issue(s)
-- Summary of changes
-- Motivation and context
-- Testing performed
-- Screenshots (for UI changes)
-- Breaking changes (if any)
-
-**Example PR Description:**
-
-```markdown
-## Related Issue
-Fixes #123
-
-## Summary
-Added ability to upload multiple files at once to knowledge base.
-
-## Changes
-- Updated VectorModal component to accept multiple files
-- Modified upload handler to process files sequentially
-- Added progress indicator for batch uploads
-- Updated documentation
-
-## Testing
-- Tested with 5 PDF files (total 50MB)
-- Tested with mixed file types (PDF, DOCX, TXT)
-- Tested error handling for invalid files
-- Verified embeddings created correctly
-
-## Screenshots
-[Attach screenshots]
-
-## Breaking Changes
-None
-```
+1. **Create an issue first**: Discuss your proposed changes
+2. **Fork the repository**: Create your own fork
+3. **Create a branch**: Use a descriptive branch name
+4. **Make your changes**: Follow our coding standards
+5. **Test thoroughly**: Ensure all tests pass
+6. **Update documentation**: If needed
+7. **Submit the PR**: With a clear description
 
 ---
 
 ## Development Workflow
 
-### Branch Naming Convention
-
-- `feature/feature-name` - New features
-- `fix/bug-description` - Bug fixes
-- `refactor/component-name` - Code refactoring
-- `docs/description` - Documentation updates
-- `test/test-description` - Test additions/updates
-
-### Commit Message Guidelines
-
-Follow the conventional commits format:
-
-```
-<type>: <subject>
-
-<body>
-
-<footer>
-```
-
-**Types:**
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation changes
-- `style`: Code style changes (formatting, no logic change)
-- `refactor`: Code refactoring
-- `test`: Adding or updating tests
-- `chore`: Maintenance tasks
-
-**Example:**
-```
-feat: Add batch file upload to knowledge base
-
-- Implement multi-file selection in VectorModal
-- Add sequential processing for multiple files
-- Include progress tracking for batch uploads
-
-Closes #123
-```
-
-### Keeping Your Fork Updated
+### Step 1: Install Requirements
 
 ```bash
-# Fetch upstream changes
-git fetch upstream
+# Install frontend dependencies
+cd assets/client
+pnpm install
 
-# Merge upstream changes into your local main branch
-git checkout main
-git merge upstream/main
+# Install Python dependencies
+pip install numpy pandas openai tiktoken
+```
 
-# Update your fork on GitHub
-git push origin main
+### Step 2: Configure Environment
+
+Create a `.env` file in the `assets/client` directory:
+```env
+MODULE=your-module-name
+ACCESS_KEY=your-access-key
+SECRET_KEY=your-secret-key
+APP=your-app-id
+EMBEDDER_ENGINE=your-embedding-engine-id
+```
+
+### Step 3: Run & Debug
+
+```bash
+# Start development server
+cd assets/client
+pnpm dev
+
+# Application will be available at http://localhost:3000
+```
+
+### Step 4: Test It
+
+```bash
+# Lint code
+pnpm lint
+
+# Type check
+pnpm type-check
+
+# Build frontend
+pnpm build
 ```
 
 ---
 
-## Coding Standards
+## Testing Your Work
 
-### TypeScript / JavaScript
+You can test your changes by running the application locally and verifying:
 
-- **Use TypeScript** for all new code
-- **Follow ESLint rules** configured in the project
-- **Use functional components** and React Hooks
-- **Avoid any type** - use proper typing
-- **Use meaningful variable names** - be descriptive
-- **Add JSDoc comments** for complex functions
-- **Keep functions small** and focused on a single task
+- The application builds without errors
+- Linting passes: `pnpm lint`
+- Type checking passes: `pnpm type-check`
+- The workflow functions as expected
+- No regressions in existing features
 
-**Example:**
+```bash
+# Run checks
+pnpm lint
+pnpm type-check
+pnpm build
+```
+
+---
+
+## Write Documentation
+
+This project has documentation in a few places:
+
+### README.md
+The main README provides an overview, installation instructions, and usage guidelines. Update this file when adding major features or changing how the application works.
+
+### Code Comments
+Add clear comments for complex logic. Use JSDoc style for functions and components:
 
 ```typescript
 /**
- * Uploads a file to the vector database and creates embeddings
- * @param file - The file to upload
- * @param vectorDBId - ID of the target vector database
- * @returns Promise<UploadResult> - Result of the upload operation
+ * Uploads documents to vector database and creates embeddings
+ * 
+ * @param files - The document files to upload (PDF, DOCX, PPT, or TXT)
+ * @param vectorDBId - The ID of the vector database
+ * @returns Promise resolving to the upload results
  */
-const uploadFileToVectorDB = async (
-  file: File,
-  vectorDBId: string
-): Promise<UploadResult> => {
-  // Implementation
-};
-```
-
-### Python
-
-- **Follow PEP 8** style guide
-- **Use type hints** where appropriate
-- **Write docstrings** for all functions and classes
-- **Keep functions focused** on single responsibility
-- **Use meaningful variable names**
-
-**Example:**
-
-```python
-def order_document_sections_by_query_similarity(
-    query: str, 
-    contexts: dict[(str, str), np.array]
-) -> list[(float, (str, str))]:
-    """
-    Order document sections by their similarity to the query.
-    
-    Args:
-        query: The user's query text
-        contexts: Dictionary mapping document sections to their embeddings
-        
-    Returns:
-        List of (similarity_score, section_id) tuples, sorted by similarity
-    """
-    # Implementation
-```
-
-### Component Structure
-
-```typescript
-// Imports
-import { useState } from 'react';
-import { styled } from '@mui/material/styles';
-
-// Types/Interfaces
-interface ComponentProps {
-  prop1: string;
-  prop2: number;
+async function uploadDocuments(files: File[], vectorDBId: string): Promise<UploadResult[]> {
+    // Implementation
 }
-
-// Styled Components
-const StyledContainer = styled('div')(({ theme }) => ({
-  padding: theme.spacing(2),
-}));
-
-// Component
-export const Component: React.FC<ComponentProps> = ({ prop1, prop2 }) => {
-  // State
-  const [state, setState] = useState('');
-  
-  // Effects
-  useEffect(() => {
-    // Effect logic
-  }, []);
-  
-  // Handlers
-  const handleClick = () => {
-    // Handler logic
-  };
-  
-  // Render
-  return (
-    <StyledContainer>
-      {/* JSX */}
-    </StyledContainer>
-  );
-};
-```
-
-### CSS / Styling
-
-- **Use Material UI's styling solution** (styled components)
-- **Use theme variables** for colors, spacing, etc.
-- **Make components responsive**
-- **Follow accessibility guidelines**
-
----
-
-## Testing Requirements
-
-### Running Tests
-
-```bash
-# Run all tests
-pnpm test
-
-# Run tests in watch mode
-pnpm test:watch
-
-# Run tests with coverage
-pnpm test:coverage
-```
-
-### Testing Checklist
-
-Before submitting a PR, ensure:
-
-- [ ] All existing tests pass
-- [ ] New features include tests
-- [ ] Bug fixes include regression tests
-- [ ] Tests cover edge cases
-- [ ] Manual testing performed
-- [ ] UI changes tested in multiple browsers
-- [ ] Responsive design tested on different screen sizes
-
-### Testing Guidelines
-
-- **Write unit tests** for utility functions
-- **Write integration tests** for component interactions
-- **Test error handling** and edge cases
-- **Mock external dependencies** (API calls, SEMOSS SDK)
-- **Aim for high coverage** but prioritize meaningful tests
-
----
-
-## Documentation Guidelines
-
-### Code Documentation
-
-- **Comment complex logic** - explain the "why", not the "what"
-- **Update JSDoc/docstrings** when modifying functions
-- **Keep comments up-to-date** with code changes
-- **Use TODO comments** for future improvements
-
-### README Updates
-
-When your changes affect usage:
-
-- Update the **Installation** section if dependencies change
-- Update the **Configuration** section for new config options
-- Update the **Usage** section for new features
-- Add examples for new functionality
-
-### Changelog
-
-Document your changes in the appropriate format:
-
-```markdown
-## [Version] - YYYY-MM-DD
-
-### Added
-- New feature description
-
-### Changed
-- Modified feature description
-
-### Fixed
-- Bug fix description
-
-### Deprecated
-- Deprecated feature description
-
-### Removed
-- Removed feature description
 ```
 
 ---
 
-## Additional Resources
+## Releasing a New Version
 
-### Project Documentation
-- [README.md](README.md) - Project overview and usage
-- [Architecture Documentation](docs/ARCHITECTURE.md) - System architecture
-- [API Documentation](docs/API.md) - API reference
-
-### External Resources
-- [SEMOSS SDK Documentation](https://semoss.org/documentation)
-- [React Documentation](https://react.dev)
-- [TypeScript Documentation](https://www.typescriptlang.org/docs)
-- [Material UI Documentation](https://mui.com)
-- [OpenAI API Documentation](https://platform.openai.com/docs)
-
-### Getting Help
-
-- **Issues**: Check existing issues or create a new one
-- **Discussions**: Join project discussions for questions
-- **Email**: Contact project maintainers for sensitive matters
+1. Ensure all tests pass and the build is successful
+2. Update version number in `package.json`
+3. Create a Git tag: `git tag -a v0.1.0 -m "Release version 0.1.0"`
+4. Push the changes: `git push`
+5. Push the tag: `git push --tags`
+6. Build the application:
+   ```bash
+   cd assets/client
+   pnpm build
+   ```
+7. Create deployment package with required files
+8. Deploy to GovConnect.ai following deployment instructions in README.md
 
 ---
-
-## Recognition
-
-Contributors will be recognized in:
-- Project README acknowledgments
-- Release notes for their contributions
-- GitHub contributors page
-
----
-
-Thank you for contributing to RAG Playground! Your efforts help make this project better for everyone. 🎉
-
-**Questions?** Don't hesitate to ask in the issues or discussions section.
